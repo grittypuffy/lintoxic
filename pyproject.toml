@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "lintoxic"
+version = "0.1.0"
+description = "Linter for toxic content and beyond!"
+authors = ["grittypuffy <grittypuffy@riseup.net>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.13"
+fastapi = { version = "^0.115.6", extras = ["all"] }
+detoxify = "^0.5.2"
+asyncio = "^3.4.3"
+aiohttp = "^3.11.11"
+torch = "^2.5.1"
+pillow = "^11.0.0"
+opencv-python = "^4.10.0.84"
+pytesseract = "^0.3.13"
+logging = "^0.4.9.6"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
