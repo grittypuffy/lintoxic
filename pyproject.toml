@@ -6,7 +6,7 @@ authors = ["grittypuffy <grittypuffy@riseup.net>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.13"
+python = "^3.12"
 fastapi = { version = "^0.115.6", extras = ["all"] }
 detoxify = "^0.5.2"
 asyncio = "^3.4.3"
@@ -17,6 +17,8 @@ opencv-python = "^4.10.0.84"
 pytesseract = "^0.3.13"
 logging = "^0.4.9.6"
 protobuf = "^5.29.2"
+speechrecognition = "^3.13.0"
+lingua-language-detector = "^2.0.2"
 
 [build-system]
 requires = ["poetry-core"]
