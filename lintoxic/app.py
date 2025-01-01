@@ -1,6 +1,7 @@
 import os
 import sys
 import asyncio
+import logging
 
 from PIL import Image
 import streamlit as st
@@ -27,6 +28,8 @@ try:
 
 except:
     sys.exit(1)
+
+logging.basicConfig("lintoxic-logs")
 
 async def check_text(text: str):
     (toxic, result) = check_toxicity(text)
