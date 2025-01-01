@@ -2,7 +2,7 @@ from typing import Optional
 from pydantic import BaseModel
 
 class FactCheckAPIResponse(BaseModel):
-    is_correct: bool
+    is_correct: str
     explanations: str
     sources: list[str]
     claim: str

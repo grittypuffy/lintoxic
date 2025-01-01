@@ -18,7 +18,7 @@ pytesseract = "^0.3.13"
 logging = "^0.4.9.6"
 protobuf = "^5.29.2"
 speechrecognition = "^3.13.0"
-lingua-language-detector = "^2.0.2"
+lingua-language-detector = "^1.4.0"
 
 [build-system]
 requires = ["poetry-core"]

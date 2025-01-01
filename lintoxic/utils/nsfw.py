@@ -1,3 +1,4 @@
+from typing import Optional
 import torch
 from PIL import Image
 from transformers import AutoModelForImageClassification, ViTImageProcessor
@@ -15,21 +16,16 @@ class NSFWImageClassificationModel:
         if NSFWImageClassificationModel._instance is not None:
             raise Exception("This is a singleton class, use the get_instance() method.")
 
-        # Load model and processor
         self.model = AutoModelForImageClassification.from_pretrained(model_name)
         self.processor = ViTImageProcessor.from_pretrained(model_name)
 
-    def predict(self, image_path: str):
-        img = Image.open(image_path)
-        
-        # Prepare the image input
+    def predict(self, *, image_path: Optional[str] = None, image_content: Optional[Image] = None):
+        img = Image.open(image_path) if image_path else image_content
         inputs = self.processor(images=img, return_tensors="pt")
         
-        # Forward pass through the model
         with torch.no_grad():
             outputs = self.model(**inputs)
             logits = outputs.logits
         
-        # Get the predicted label
         predicted_label = logits.argmax(-1).item()
         return predicted_label, self.model.config.id2label[predicted_label]
