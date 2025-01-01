@@ -2,7 +2,7 @@ from typing import Optional
 import torch
 import speech_recognition as sr
 from transformers import MBartForConditionalGeneration, MBartTokenizer
-from lingua import Language, LanguageDetectorBuilder
+from lingua import Language, LanguageDetectorBuilder, IsoCode639_1
 
 class AudioProcessor:
     _instance = None
@@ -59,7 +59,7 @@ class AudioProcessor:
             return None
 
         detected_lang = self.predict_language(transcription.get("transcription"))
-        if detected_lang.iso_code_639_1.name == "EN":
+        if detected_lang == IsoCode639_1.EN:
             return transcription.get("transcription")
             
         if not detected_lang:

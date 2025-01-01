@@ -18,7 +18,7 @@ async def check_fact_accuracy(text: str):
                 for content in contents:
                     if content["is_correct"] == "True":
                         true_facts += 1
-                    else:
+                    elif content["is_correct"] == "False":
                         false_contents.append(content)
                 if len(contents):
                     accuracy: float = (true_facts / len(contents)) * 100
