@@ -29,7 +29,7 @@ try:
 except:
     sys.exit(1)
 
-logging.basicConfig("lintoxic-logs")
+logging.basicConfig("lintoxic-logs.log")
 
 async def check_text(text: str):
     (toxic, result) = check_toxicity(text)

@@ -22,7 +22,9 @@ async def check_fact_accuracy(text: str):
                         false_contents.append(content)
                 if len(contents):
                     accuracy: float = (true_facts / len(contents)) * 100
-                return FactCheckResponse(accuracy=accuracy if accuracy else 0.0, text=text, false_information=false_contents if false_contents else None)
+                    return FactCheckResponse(accuracy=accuracy if accuracy else 0.0, text=text, false_information=false_contents if false_contents else None)
+                return FactCheckResponse(accuracy=0.0, text=text, false_information=false_contents if false_contents else None)
+
             else:
                 raise Exception(f"{response.status}")
 
